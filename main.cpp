@@ -10,7 +10,7 @@ private:
         Node* prev;
         Node* next;
         Node(int val, Node* p = nullptr, Node* n = nullptr) {
-            data = val; 
+            data = val;
             prev = p;
             next = n;
         }
@@ -74,6 +74,51 @@ public:
         else
             tail = newNode; // Inserting at the end
         temp->next = newNode;
+    }
+
+    void delete_pos(int position)
+    {
+        if (!head) return; // Empty list
+
+        int count = 0;
+
+        Node* temp = head;
+        while (temp && position != count)
+        {
+            temp = temp->next;
+            count++;
+        }
+
+        if (!temp) return; // position not found
+
+        if (temp->prev) {
+            temp->prev->next = temp->next;
+        } else {
+            head = temp->next; // Deleting the head
+        }
+
+        if (temp->next) {
+            temp->next->prev = temp->prev;
+        } else {
+            tail = temp->prev; // Deleting the tail
+        }
+
+        delete temp;
+    }
+
+    void pop_front()
+    {
+        Node *temp = head;
+        head = head->next;
+        head->prev = nullptr;
+        delete temp;
+    }
+
+    void pop_back()
+    {
+        Node *temp1 = tail;
+        tail->prev->next = nullptr;
+        delete temp1;
     }
 
     void delete_node(int value) {
