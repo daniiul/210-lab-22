@@ -1,3 +1,5 @@
+// COMSC-210 | Lab 22 | Daniil Malakhov
+// IDE used: Codeblocks
 #include <iostream>
 using namespace std;
 
@@ -76,6 +78,9 @@ public:
         temp->next = newNode;
     }
 
+    // deletes node at the position
+    // arguments: an integer representing the position of node to delete
+    // returns: none
     void delete_pos(int position)
     {
         if (!head) return; // Empty list
@@ -106,6 +111,9 @@ public:
         delete temp;
     }
 
+    // Deletes the node at front of linked list
+    // arguments: none
+    // returns: none
     void pop_front()
     {
         Node *temp = head;
@@ -114,6 +122,9 @@ public:
         delete temp;
     }
 
+    // Deletes the node at the end of linked list
+    // arguments: none
+    // returns: none
     void pop_back()
     {
         Node *temp1 = tail;
@@ -121,6 +132,9 @@ public:
         delete temp1;
     }
 
+    // deletes first node with given value
+    // arguments: an integer representing the value of node to delete
+    // returns: none
     void delete_val(int value) {
         if (!head) return; // Empty list
 
