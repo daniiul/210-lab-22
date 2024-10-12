@@ -121,7 +121,7 @@ public:
         delete temp1;
     }
 
-    void delete_node(int value) {
+    void delete_val(int value) {
         if (!head) return; // Empty list
 
         Node* temp = head;
@@ -186,6 +186,28 @@ int main() {
 
     cout << "List backward: ";
     list.print_reverse();
+
+    int pos;
+    cout << "Position of value you would like to delete (begins at 1): ";
+    cin >> pos;
+    cout << "Printing list: " << endl;
+    list.delete_pos(pos - 1);
+    list.print();
+
+    int val;
+    cout << "Value you would like to delete: ";
+    cin >> val;
+    cout << "Printing list: " << endl;
+    list.delete_val(val);
+    list.print();
+
+    cout << "Popping value from front: " << endl;
+    list.pop_front();
+    list.print();
+
+    cout << "Popping value from back: " << endl;
+    list.pop_back();
+    list.print();
 
     cout << "Deleting list, then trying to print.\n";
     list.~DoublyLinkedList();
